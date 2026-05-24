@@ -46,9 +46,24 @@
 
 	<script type="text/javascript">
 			$(document).ready(function() {
-				window.dynmap = new DynMap($.extend({
-					container: $('#mcmap')
-				}, config));
+				<script>
+const map = L.map('mcmap', {
+    crs: L.CRS.Simple,
+    minZoom: 0,
+    maxZoom: 5
+});
+
+// ajustar tamaño (puedes cambiarlo luego)
+const bounds = [[0,0], [4096,4096]];
+
+// CAMBIA ESTE ARCHIVO si no existe
+L.imageOverlay(
+    'tiles/world/flat/0_0/0_0.jpg',
+    bounds
+).addTo(map);
+
+map.fitBounds(bounds);
+</script>
 			});
 	</script>
 
